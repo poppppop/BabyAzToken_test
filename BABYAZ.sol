@@ -190,7 +190,7 @@ contract BABYAZ is ERC20, Ownable {
 
 
     function setAutomatedMarketMakerPair(address pair, bool value) public onlyOwner {
-        require(pair != uniswapV2Pair, "BABYCAKE: The PancakeSwap pair cannot be removed from automatedMarketMakerPairs");
+        require(pair != uniswapV2Pair, "BABYAZ: The PancakeSwap pair cannot be removed from automatedMarketMakerPairs");
 
         _setAutomatedMarketMakerPair(pair, value);
     }
@@ -201,7 +201,7 @@ contract BABYAZ is ERC20, Ownable {
 
 
     function _setAutomatedMarketMakerPair(address pair, bool value) private {
-        require(automatedMarketMakerPairs[pair] != value, "BABYCAKE: Automated market maker pair is already set to that value");
+        require(automatedMarketMakerPairs[pair] != value, "BABYAZ: Automated market maker pair is already set to that value");
         automatedMarketMakerPairs[pair] = value;
 
         if(value) {
@@ -213,8 +213,8 @@ contract BABYAZ is ERC20, Ownable {
 
 
     function updateGasForProcessing(uint256 newValue) public onlyOwner {
-        require(newValue >= 200000 && newValue <= 500000, "BABYCAKE: gasForProcessing must be between 200,000 and 500,000");
-        require(newValue != gasForProcessing, "BABYCAKE: Cannot update gasForProcessing to same value");
+        require(newValue >= 200000 && newValue <= 500000, "BABYAZ: gasForProcessing must be between 200,000 and 500,000");
+        require(newValue != gasForProcessing, "BABYAZ: Cannot update gasForProcessing to same value");
         emit GasForProcessingUpdated(newValue, gasForProcessing);
         gasForProcessing = newValue;
     }
