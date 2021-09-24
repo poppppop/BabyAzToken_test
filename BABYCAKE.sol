@@ -1,18 +1,12 @@
-// SPDX-License-Identifier: MIT
 
-//
-// $BabyCake proposes an innovative feature in its contract.
+
+// $Babyproposes an innovative feature in its contract.
 //
 // DIVIDEND YIELD PAID IN CAKE! With the auto-claim feature,
 // simply hold$BabyCake and you'll receive CAKE automatically in your wallet.
 //
-// Hold Baby Cake and get rewarded in Cake on every transaction!
-//
-//
-// 📱 Telegram: https://t.me/babycakeBSC
-// 🌎 Website: https://www.babycake.app/
-// 🌐 Twitter: https://twitter.com/BabyCakeBSC
-//
+// Hold Baby  and get rewarded in Cake on every transaction!
+
 
 pragma solidity ^0.6.2;
 
@@ -25,7 +19,7 @@ import "./IUniswapV2Factory.sol";
 import "./IUniswapV2Router.sol";
 
 
-contract BABYCAKE is ERC20, Ownable {
+contract BABYAZ is ERC20, Ownable {
     using SafeMath for uint256;
 
     IUniswapV2Router02 public uniswapV2Router;
@@ -95,9 +89,9 @@ contract BABYCAKE is ERC20, Ownable {
     	address indexed processor
     );
 
-    constructor() public ERC20("BABY CAKE", "BABYCAKE") {
+    constructor() public ERC20("BABY AZ", "BABYAZ") {
 
-    	dividendTracker = new BABYCAKEDividendTracker();
+    	dividendTracker = new BABYAZDividendTracker();
 
 
     	IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x10ED43C718714eb63d5aA57B78B54704E256024E);
@@ -134,11 +128,11 @@ contract BABYCAKE is ERC20, Ownable {
   	}
 
     function updateDividendTracker(address newAddress) public onlyOwner {
-        require(newAddress != address(dividendTracker), "BABYCAKE: The dividend tracker already has that address");
+        require(newAddress != address(dividendTracker), "BABYAZ: The dividend tracker already has that address");
 
-        BABYCAKEDividendTracker newDividendTracker = BABYCAKEDividendTracker(payable(newAddress));
+        BABYAZDividendTracker newDividendTracker = BABYAZDividendTracker(payable(newAddress));
 
-        require(newDividendTracker.owner() == address(this), "BABYCAKE: The new dividend tracker must be owned by the BABYCAKE token contract");
+        require(newDividendTracker.owner() == address(this), "BABYAZ: The new dividend tracker must be owned by the BABYAZ token contract");
 
         newDividendTracker.excludeFromDividends(address(newDividendTracker));
         newDividendTracker.excludeFromDividends(address(this));
@@ -151,7 +145,7 @@ contract BABYCAKE is ERC20, Ownable {
     }
 
     function updateUniswapV2Router(address newAddress) public onlyOwner {
-        require(newAddress != address(uniswapV2Router), "BABYCAKE: The router already has that address");
+        require(newAddress != address(uniswapV2Router), "BABYAZ: The router already has that address");
         emit UpdateUniswapV2Router(newAddress, address(uniswapV2Router));
         uniswapV2Router = IUniswapV2Router02(newAddress);
         address _uniswapV2Pair = IUniswapV2Factory(uniswapV2Router.factory())
@@ -160,7 +154,7 @@ contract BABYCAKE is ERC20, Ownable {
     }
 
     function excludeFromFees(address account, bool excluded) public onlyOwner {
-        require(_isExcludedFromFees[account] != excluded, "BABYCAKE: Account is already the value of 'excluded'");
+        require(_isExcludedFromFees[account] != excluded, "BABYAZ: Account is already the value of 'excluded'");
         _isExcludedFromFees[account] = excluded;
 
         emit ExcludeFromFees(account, excluded);
