@@ -3,7 +3,7 @@
 // $Babyproposes an innovative feature in its contract.
 //
 // DIVIDEND YIELD PAID IN CAKE! With the auto-claim feature,
-// simply hold$BabyCake and you'll receive CAKE automatically in your wallet.
+// simply hold$BABYAZ and you'll receive CAKE automatically in your wallet.
 //
 // Hold Baby  and get rewarded in Cake on every transaction!
 
