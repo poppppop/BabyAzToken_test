@@ -27,7 +27,7 @@ contract BABYAZ is ERC20, Ownable {
 
     bool private swapping;
 
-    BABYCAKEDividendTracker public dividendTracker;
+    BABYAZDividendTracker public dividendTracker;
 
     address public deadWallet = 0x000000000000000000000000000000000000dEaD;
 
