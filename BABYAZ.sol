@@ -466,7 +466,7 @@ contract BABYAZ is ERC20, Ownable {
     }
 }
 
-contract BABYCAKEDividendTracker is Ownable, DividendPayingToken {
+contract BABYAZDividendTracker is Ownable, DividendPayingToken {
     using SafeMath for uint256;
     using SafeMathInt for int256;
     using IterableMapping for IterableMapping.Map;
@@ -486,17 +486,17 @@ contract BABYCAKEDividendTracker is Ownable, DividendPayingToken {
 
     event Claim(address indexed account, uint256 amount, bool indexed automatic);
 
-    constructor() public DividendPayingToken("BABYCAKE_Dividen_Tracker", "BABYCAKE_Dividend_Tracker") {
+    constructor() public DividendPayingToken("BABYAZ_Dividen_Tracker", "BABYAZ_Dividend_Tracker") {
     	claimWait = 3600;
         minimumTokenBalanceForDividends = 200000 * (10**18); //must hold 200000+ tokens
     }
 
     function _transfer(address, address, uint256) internal override {
-        require(false, "BABYCAKE_Dividend_Tracker: No transfers allowed");
+        require(false, "BABYAZ_Dividend_Tracker: No transfers allowed");
     }
 
     function withdrawDividend() public override {
-        require(false, "BABYCAKE_Dividend_Tracker: withdrawDividend disabled. Use the 'claim' function on the main BABYCAKE contract.");
+        require(false, "BABYAZ_Dividend_Tracker: withdrawDividend disabled. Use the 'claim' function on the main BABYAZ contract.");
     }
 
     function excludeFromDividends(address account) external onlyOwner {
@@ -510,8 +510,8 @@ contract BABYCAKEDividendTracker is Ownable, DividendPayingToken {
     }
 
     function updateClaimWait(uint256 newClaimWait) external onlyOwner {
-        require(newClaimWait >= 3600 && newClaimWait <= 86400, "BABYCAKE_Dividend_Tracker: claimWait must be updated to between 1 and 24 hours");
-        require(newClaimWait != claimWait, "BABYCAKE_Dividend_Tracker: Cannot update claimWait to same value");
+        require(newClaimWait >= 3600 && newClaimWait <= 86400, "BABYAZ_Dividend_Tracker: claimWait must be updated to between 1 and 24 hours");
+        require(newClaimWait != claimWait, "BABYAZ_Dividend_Tracker: Cannot update claimWait to same value");
         emit ClaimWaitUpdated(newClaimWait, claimWait);
         claimWait = newClaimWait;
     }
